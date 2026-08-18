@@ -1,7 +1,14 @@
 class Validators {
   static String? validateTitle(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return "Task title is required";
+      return "Please enter task title";
+    }
+    return null;
+  }
+
+  static String? validateDescription(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return "Please enter description";
     }
     return null;
   }

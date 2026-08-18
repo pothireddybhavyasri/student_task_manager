@@ -5,13 +5,29 @@ class EmptyTaskWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "No Tasks Yet",
-        style: TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Icon(
+            Icons.assignment_outlined,
+            size: 90,
+            color: Colors.grey,
+          ),
+          SizedBox(height: 20),
+          Text(
+            "No Tasks Yet",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            "Tap the + button to add your first task",
+            style: TextStyle(color: Colors.grey),
+          ),
+        ],
       ),
     );
   }

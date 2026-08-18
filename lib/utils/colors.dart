@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primary = Colors.indigo;
-  static const Color background = Colors.white;
-  static const Color completed = Colors.green;
-  static const Color pending = Colors.red;
+  static const primary = Colors.indigo;
+  static const high = Colors.red;
+  static const medium = Colors.orange;
+  static const low = Colors.green;
+
+  static const background = Color(0xffF7F8FC);
+
+  static const white = Colors.white;
 }
