@@ -95,8 +95,10 @@ class TaskCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Positioned(
-                right: 0,
+              AnimatedPositioned(
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+                right: task.isCompleted ? 20 : 0,
                 top: 0,
                 child: Opacity(
                   opacity: 0.1,
