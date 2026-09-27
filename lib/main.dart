@@ -5,6 +5,7 @@ import 'screens/add_task_screen.dart';
 import 'screens/edit_task_screen.dart';
 import 'screens/api_demo_screen.dart';
 import 'services/task_provider.dart';
+import 'utils/themes.dart';
 
 void main() {
   runApp(
@@ -22,10 +23,9 @@ class StudentTaskManagerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Student Task Manager',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
+      theme: AppThemes.lightTheme,
+      darkTheme: AppThemes.darkTheme,
+      themeMode: ThemeMode.system,
       initialRoute: '/',
       routes: {
         '/': (context) => const HomeScreen(),
