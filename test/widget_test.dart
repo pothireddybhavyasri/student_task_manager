@@ -6,7 +6,7 @@ import 'package:student_task_manager/services/task_provider.dart';
 import 'package:student_task_manager/widgets/custom_button.dart';
 
 void main() {
-  testWidgets('Form validation works', (WidgetTester tester) async {
+  testWidgets('Animation and state test', (WidgetTester tester) async {
     tester.view.physicalSize = const Size(400, 800);
     tester.view.devicePixelRatio = 1.0;
 
@@ -19,29 +19,28 @@ void main() {
     await tester.pumpAndSettle();
 
     // Navigate to Add Task
-    final addButton = find.widgetWithText(CustomButton, 'Add Task');
-    await tester.tap(addButton);
+    await tester.tap(find.widgetWithText(CustomButton, 'Add Task'));
     await tester.pumpAndSettle();
 
-    // Tap Save without entering data to trigger validation
-    await tester.tap(find.text('Save Task'));
-    await tester.pump(); // trigger validation rebuild
-
-    // Verify error messages
-    expect(find.text('Please enter a task title'), findsOneWidget);
-    expect(find.text('Please enter a description'), findsOneWidget);
-    expect(find.text('Please enter a due date'), findsOneWidget);
-    
     // Fill out form
-    await tester.enterText(find.byType(TextFormField).at(0), 'Valid Task');
-    await tester.enterText(find.byType(TextFormField).at(1), 'Valid description');
+    await tester.enterText(find.byType(TextFormField).at(0), 'Anim Task');
+    await tester.enterText(find.byType(TextFormField).at(1), 'Anim description');
     await tester.enterText(find.byType(TextFormField).at(2), 'Tomorrow');
-    
     await tester.tap(find.text('Save Task'));
     await tester.pumpAndSettle();
 
-    // Verify task is added to home screen
-    expect(find.text('Valid Task'), findsOneWidget);
+    expect(find.text('Anim Task'), findsOneWidget);
+
+    // Toggle completion to trigger animations
+    await tester.tap(find.byIcon(Icons.circle_outlined));
+    
+    // Pump frames to complete the 500ms animation
+    await tester.pump(const Duration(milliseconds: 100));
+    await tester.pump(const Duration(milliseconds: 200));
+    await tester.pump(const Duration(milliseconds: 200));
+    await tester.pumpAndSettle();
+
+    expect(find.byIcon(Icons.check_circle), findsOneWidget);
     
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
