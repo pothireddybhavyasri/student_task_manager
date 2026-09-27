@@ -20,16 +20,18 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   String _dueDate = '';
 
   void _saveTask() {
-    _formKey.currentState!.save();
-    final newTask = Task(
-      id: DateTime.now().toString(),
-      title: _title,
-      description: _description,
-      priority: _priority,
-      dueDate: _dueDate,
-    );
-    context.read<TaskProvider>().addTask(newTask);
-    Navigator.pop(context);
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      final newTask = Task(
+        id: DateTime.now().toString(),
+        title: _title,
+        description: _description,
+        priority: _priority,
+        dueDate: _dueDate,
+      );
+      context.read<TaskProvider>().addTask(newTask);
+      Navigator.pop(context);
+    }
   }
 
   @override
@@ -44,12 +46,27 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             children: [
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Task Title'),
-                onSaved: (value) => _title = value ?? '',
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Please enter a task title';
+                  }
+                  return null;
+                },
+                onSaved: (value) => _title = value!.trim(),
               ),
               const SizedBox(height: 16),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Description'),
-                onSaved: (value) => _description = value ?? '',
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Please enter a description';
+                  }
+                  if (value.trim().length < 5) {
+                    return 'Description must be at least 5 characters long';
+                  }
+                  return null;
+                },
+                onSaved: (value) => _description = value!.trim(),
               ),
               const SizedBox(height: 16),
               DropdownButtonFormField<String>(
@@ -68,7 +85,13 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               const SizedBox(height: 16),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Due Date'),
-                onSaved: (value) => _dueDate = value ?? '',
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Please enter a due date';
+                  }
+                  return null;
+                },
+                onSaved: (value) => _dueDate = value!.trim(),
               ),
               const SizedBox(height: 32),
               CustomButton(
