@@ -1,7 +1,45 @@
 ﻿import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/task.dart';
 import 'task_details_screen.dart';
+import '../services/task_provider.dart';
+
+class SearchBox extends StatefulWidget {
+  const SearchBox({super.key});
+
+  @override
+  State<SearchBox> createState() => _SearchBoxState();
+}
+
+class _SearchBoxState extends State<SearchBox> {
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: TextField(
+        controller: _controller,
+        decoration: InputDecoration(
+          labelText: 'Search Tasks',
+          suffixIcon: IconButton(
+            icon: const Icon(Icons.clear),
+            onPressed: () {
+              setState(() {
+                _controller.clear();
+              });
+              context.read<TaskProvider>().setSearchQuery('');
+            },
+          ),
+        ),
+        onChanged: (value) {
+          context.read<TaskProvider>().setSearchQuery(value);
+        },
+      ),
+    );
+  }
+}
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,22 +50,6 @@ class HomeScreen extends StatelessWidget {
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
     final paddingValue = mediaQuery.size.width * 0.02;
 
-    final List<Task> tasks = [
-      Task(
-        title: 'Complete Flutter Lab',
-        description: 'Finish Experiment 2 on widgets',
-        priority: 'High',
-        dueDate: 'Tomorrow',
-      ),
-      Task(
-        title: 'Read Math chapter 5',
-        description: 'Read and take notes',
-        priority: 'Low',
-        dueDate: 'Next Week',
-        isCompleted: true,
-      ),
-    ];
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Student Task Manager'),
@@ -36,6 +58,7 @@ class HomeScreen extends StatelessWidget {
         padding: EdgeInsets.all(paddingValue),
         child: Column(
           children: [
+            const SearchBox(),
             Container(
               padding: const EdgeInsets.all(16.0),
               width: double.infinity,
@@ -44,32 +67,44 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Total Tasks:'),
-                  Text('${tasks.length}', style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Consumer<TaskProvider>(
+                    builder: (context, provider, child) {
+                      return Text('${provider.totalTasks}', style: const TextStyle(fontWeight: FontWeight.bold));
+                    }
+                  ),
                 ],
               ),
             ),
             Expanded(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  if (constraints.maxWidth > 600) {
-                    return GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: 2.0, // Fixed overflow by adjusting aspect ratio
-                      ),
-                      itemCount: tasks.length,
-                      itemBuilder: (context, index) {
-                        return TaskCardWidget(task: tasks[index]);
-                      },
-                    );
-                  } else {
-                    return ListView.builder(
-                      itemCount: tasks.length,
-                      itemBuilder: (context, index) {
-                        return TaskCardWidget(task: tasks[index]);
-                      },
-                    );
+              child: Consumer<TaskProvider>(
+                builder: (context, provider, child) {
+                  final tasks = provider.tasks;
+                  if (tasks.isEmpty) {
+                    return const Center(child: Text('No tasks yet. Add one!'));
                   }
+                  return LayoutBuilder(
+                    builder: (context, constraints) {
+                      if (constraints.maxWidth > 600) {
+                        return GridView.builder(
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 2.0,
+                          ),
+                          itemCount: tasks.length,
+                          itemBuilder: (context, index) {
+                            return TaskCardWidget(task: tasks[index]);
+                          },
+                        );
+                      } else {
+                        return ListView.builder(
+                          itemCount: tasks.length,
+                          itemBuilder: (context, index) {
+                            return TaskCardWidget(task: tasks[index]);
+                          },
+                        );
+                      }
+                    },
+                  );
                 },
               ),
             ),
@@ -143,9 +178,14 @@ class TaskCardWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(
-                      task.isCompleted ? Icons.check_circle : Icons.circle_outlined,
-                      color: task.isCompleted ? Colors.green : Colors.grey,
+                    GestureDetector(
+                      onTap: () {
+                        context.read<TaskProvider>().toggleTaskCompletion(task.id);
+                      },
+                      child: Icon(
+                        task.isCompleted ? Icons.check_circle : Icons.circle_outlined,
+                        color: task.isCompleted ? Colors.green : Colors.grey,
+                      ),
                     ),
                     const SizedBox(width: 8),
                     Expanded(
@@ -200,6 +240,16 @@ class TaskCardWidget extends StatelessWidget {
                   width: 40,
                   height: 40,
                 ),
+              ),
+            ),
+            Positioned(
+              right: 0,
+              bottom: 0,
+              child: IconButton(
+                icon: const Icon(Icons.delete, color: Colors.red),
+                onPressed: () {
+                  context.read<TaskProvider>().deleteTask(task.id);
+                },
               ),
             ),
           ],
