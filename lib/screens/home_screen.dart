@@ -7,6 +7,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final isLandscape = mediaQuery.orientation == Orientation.landscape;
+    final paddingValue = mediaQuery.size.width * 0.02;
+
     final List<Task> tasks = [
       Task(
         title: 'Complete Flutter Lab',
@@ -27,43 +31,46 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Student Task Manager'),
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            width: double.infinity,
-            color: Colors.blue.shade50,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('Total Tasks:'),
-                Text('\', style: const TextStyle(fontWeight: FontWeight.bold)),
-              ],
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: tasks.length,
-              itemBuilder: (context, index) {
-                return TaskCardWidget(task: tasks[index]);
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: ElevatedButton(
-              onPressed: () {},
-              child: const Row(
-                mainAxisSize: MainAxisSize.min,
+      body: Padding(
+        padding: EdgeInsets.all(paddingValue),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              width: double.infinity,
+              color: Colors.blue.shade50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.add),
-                  SizedBox(width: 8),
-                  Text('Add Task'),
+                  const Text('Total Tasks:'),
+                  Text('${tasks.length}', style: const TextStyle(fontWeight: FontWeight.bold)),
                 ],
               ),
             ),
-          )
-        ],
+            Expanded(
+              child: ListView.builder(
+                itemCount: tasks.length,
+                itemBuilder: (context, index) {
+                  return TaskCardWidget(task: tasks[index]);
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.add),
+                    const SizedBox(width: 8),
+                    Text(isLandscape ? 'Add New Student Task' : 'Add Task'),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -128,7 +135,7 @@ class TaskCardWidget extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'Priority: \',
+                    'Priority: ${task.priority}',
                     style: TextStyle(
                       color: task.priority == 'High' ? Colors.red : Colors.blue,
                       fontWeight: FontWeight.bold,
