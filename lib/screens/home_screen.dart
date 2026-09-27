@@ -48,10 +48,27 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: ListView.builder(
-                itemCount: tasks.length,
-                itemBuilder: (context, index) {
-                  return TaskCardWidget(task: tasks[index]);
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  if (constraints.maxWidth > 600) {
+                    return GridView.builder(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 2.5,
+                      ),
+                      itemCount: tasks.length,
+                      itemBuilder: (context, index) {
+                        return TaskCardWidget(task: tasks[index]);
+                      },
+                    );
+                  } else {
+                    return ListView.builder(
+                      itemCount: tasks.length,
+                      itemBuilder: (context, index) {
+                        return TaskCardWidget(task: tasks[index]);
+                      },
+                    );
+                  }
                 },
               ),
             ),
