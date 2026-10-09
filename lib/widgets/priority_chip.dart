@@ -1,4 +1,6 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../utils/themes.dart';
 
 class PriorityChip extends StatelessWidget {
   final String priority;
@@ -6,17 +8,27 @@ class PriorityChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = priority == 'High' ? Colors.red : Colors.blue;
+    final color = priority == 'High' ? AppColors.highPriority : AppColors.mediumPriority;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
-        border: Border.all(color: color),
-        borderRadius: BorderRadius.circular(12.0),
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(20.0),
       ),
-      child: Text(
-        'Priority: $priority',
-        style: TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 12),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.flag, size: 12, color: color),
+          const SizedBox(width: 4),
+          Text(
+            priority,
+            style: GoogleFonts.inter(
+              color: color, 
+              fontWeight: FontWeight.w600, 
+              fontSize: 12
+            ),
+          ),
+        ],
       ),
     );
   }

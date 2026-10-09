@@ -1,4 +1,4 @@
-﻿import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:student_task_manager/models/task.dart';
 import 'package:student_task_manager/services/task_provider.dart';
 

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import '../models/task.dart';
 
 class TaskProvider extends ChangeNotifier {
@@ -13,6 +13,9 @@ class TaskProvider extends ChangeNotifier {
   }
 
   int get totalTasks => _tasks.length;
+  int get pendingTasks => _tasks.where((t) => !t.isCompleted).length;
+  int get completedTasks => _tasks.where((t) => t.isCompleted).length;
+  int get highPriorityTasks => _tasks.where((t) => !t.isCompleted && t.priority == 'High').length;
 
   void addTask(Task task) {
     _tasks.add(task);
