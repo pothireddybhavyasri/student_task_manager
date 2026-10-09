@@ -32,11 +32,33 @@ Below are the genuine application screenshots demonstrating the responsive layou
 
 ---
 
+
 ## 🚀 Project Overview
 
 The Student Task Manager is a full-stack Flutter application implementing a clean, modern SaaS-style dashboard. It demonstrates essential Flutter capabilities including state management, responsive design, form validation, dynamic routing, and REST API integration.
 
-## ✨ Features and Implementation
+## ✨ Features
+
+| Feature | Status |
+|---|---|
+| Add task (title, description, priority, due date) with validation | ✅ Implemented |
+| Delete task | ✅ Implemented |
+| Mark completed / pending (card fades, title struck through) | ✅ Implemented |
+| Search by title (live, case‑insensitive) | ✅ Implemented |
+| Task counter and empty state | ✅ Implemented |
+| Responsive list ↔ grid layout (breakpoint 600 px) | ✅ Implemented |
+| Named‑route navigation | ✅ Implemented |
+| Light / dark Material 3 theme | ✅ Implemented |
+| REST API demo screen (`http`) | ✅ Implemented |
+| Edit task | 🚧 Placeholder screen only |
+| Task details | 🚧 Shows title only |
+| Local storage (Shared Preferences) | ❌ Not implemented (tasks are kept in memory) |
+
+---
+
+
+
+## ✨ Features
 
 - **Dashboard with Live Metrics:** Track Total, Pending, Completed, and High-Priority tasks dynamically via `Provider`.
 - **Responsive Layouts:** Uses `ConstrainedBox` and screen-width checks to toggle between a 3-column desktop grid and a 1-column mobile list layout seamlessly.
@@ -46,6 +68,93 @@ The Student Task Manager is a full-stack Flutter application implementing a clea
 - **Premium Design System:** Implements a rigorous color palette, subtle borders, `GoogleFonts.inter`, and avoids decorative clutter for maximum readability and contrast.
 
 ---
+
+
+## 🎨 Visual Overview
+
+### Home screen layout
+Drawn from `lib/screens/home_screen.dart` (a layout diagram, not a screenshot).
+
+```text
+┌──────────────────────────────────┐
+│     Student Task Manager         │  ← AppBar
+├──────────────────────────────────┤
+│ 🔍 Search Tasks             ✕    │  ← SearchBox
+├──────────────────────────────────┤
+│ Total Tasks:                  3  │  ← Consumer<TaskProvider>
+├──────────────────────────────────┤
+│ ┌──────────────────────────────┐ │
+│ │ ○ Task title        Pending  │ │  ← TaskCard
+│ │ Description                  │ │     (list on phones,
+│ │ 📅 Due date  Priority: High 🗑│ │      2-column grid > 600 px)
+│ └──────────────────────────────┘ │
+├──────────────────────────────────┤
+│         [ + Add Task ]           │
+│         [   API Demo  ]          │
+└──────────────────────────────────┘
+```
+
+### App navigation flow
+
+```mermaid
+flowchart TD
+    H["Home Screen"] -->|"Add Task"| A["Add Task Form"]
+    A -->|"valid, Save Task"| P["TaskProvider.addTask"]
+    A -->|"invalid"| E["Validation messages"]
+    E --> A
+    P --> H
+    H -->|"tap a card"| D["Task Details"]
+    H -->|"API Demo"| API["API Demo Screen"]
+    H -.->|"route exists, placeholder only"| ED["Edit Task"]
+```
+
+### State management (Provider)
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant S as SearchBox / TaskCard
+    participant P as TaskProvider
+    participant C as Consumer widgets
+    U->>S: type in search / tap circle / tap delete
+    S->>P: setSearchQuery / toggleTaskCompletion / deleteTask
+    P->>P: update list
+    P-->>C: notifyListeners()
+    C->>C: rebuild counter and task list
+```
+
+### Responsive layout decision
+
+```mermaid
+flowchart LR
+    W["LayoutBuilder: constraints.maxWidth"] --> Q{"width > 600 ?"}
+    Q -->|"yes"| G["GridView, 2 columns"]
+    Q -->|"no"| L["ListView, 1 column"]
+```
+
+### Task status
+
+```mermaid
+stateDiagram-v2
+    [*] --> Pending
+    Pending --> Done: tap circle icon
+    Done --> Pending: tap check icon
+    Pending --> [*]: delete
+    Done --> [*]: delete
+```
+
+### Architecture
+
+```mermaid
+flowchart LR
+    M["models: Task, ApiUser"] --> S["services: TaskProvider"]
+    S --> SC["screens: Home, Add, Details, API Demo"]
+    SC --> W["widgets: TaskCard, chips, CustomButton"]
+    T["utils: AppThemes"] --> SC
+```
+
+
+
 
 ## 🛠 Technology Stack
 
@@ -87,6 +196,10 @@ lib/
 
 The evolution of this project was documented through ten core experimental steps. Snippets are trimmed excerpts from the source.
 
+## 🧪 Experiments
+
+Snippets are trimmed excerpts from the source (`// ...` marks omitted lines).
+
 ### Exp 1 – Flutter & Dart foundation
 App entry point with Provider set up at the root. Commits: `b4aa9d0`, `17c3e5d`, `deffa58`
 
@@ -101,26 +214,31 @@ runApp(
 ```
 
 ### Exp 2 – Widgets and layouts
-`TaskCard` is built from flexible containers, utilizing robust overflow constraints. Commits: `cd24a70`, `7910a1a`, `1aaf286`
+`TaskCard` is built from `Column`, `Row`, `Expanded` and `Flexible`. The due date uses `Flexible` with `TextOverflow.ellipsis` so long text doesn't overflow. Commits: `cd24a70`, `7910a1a`, `1aaf286`
 
 ### Exp 3 – Responsive UI
-Media queries and constraints dynamically adapt the UI. Commits: `bcbb5e9`, `0aa3653`, `9cb6d76`
+`MediaQuery` gives screen size and orientation. `LayoutBuilder` picks a list or grid by available width. Commits: `bcbb5e9`, `0aa3653`, `9cb6d76`
 
 ```dart
 // lib/screens/home_screen.dart
-final isDesktop = mediaQuery.size.width > 800;
+final isLandscape = mediaQuery.orientation == Orientation.landscape;
+final paddingValue = mediaQuery.size.width * 0.02;
 // ...
-GridView.builder(
-  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: isDesktop ? 3 : 1,
-    // ...
-  ),
-);
+LayoutBuilder(
+  builder: (context, constraints) {
+    if (constraints.maxWidth > 600) {
+      return GridView.builder(/* crossAxisCount: 2 */ ...);
+    } else {
+      return ListView.builder(...);
+    }
+  },
+)
 ```
-*See it: run `flutter run -d chrome` and resize the window across 800 px to see the grid expand.*
+
+**See it:** run `flutter run -d chrome` and resize the window across 600 px: one column below, two above.
 
 ### Exp 4 – Navigation
-Named routes handle navigation seamlessly across the app. Commits: `e38c7a5`, `0ddf453`, `f7d6dcd`
+Named routes are declared in `MaterialApp`; tapping a card opens the details screen. Commits: `e38c7a5`, `0ddf453`, `f7d6dcd`
 
 ```dart
 // lib/main.dart
@@ -129,28 +247,91 @@ routes: {
   '/add-task': (context) => const AddTaskScreen(),
   '/edit-task': (context) => const EditTaskScreen(),
   '/api-demo': (context) => const ApiDemoScreen(),
-}
+},
 ```
 
 ### Exp 5 – State management (Provider)
-`TaskProvider` holds the task list, calculates metrics (e.g. `pendingTasks`, `totalTasks`), handles searching, and calls `notifyListeners()`. Commits: `1e8f413`, `49dcb3d`, `dce724b`
+`TaskProvider` holds the task list and search query, and calls `notifyListeners()` after every change. Commits: `1e8f413`, `49dcb3d`, `dce724b`
+
+```dart
+// lib/services/task_provider.dart
+List<Task> get tasks {
+  if (_searchQuery.isEmpty) return _tasks;
+  return _tasks
+      .where((t) => t.title.toLowerCase().contains(_searchQuery.toLowerCase()))
+      .toList();
+}
+
+void toggleTaskCompletion(String id) {
+  final index = _tasks.indexWhere((t) => t.id == id);
+  if (index != -1) {
+    _tasks[index] = _tasks[index].copyWith(isCompleted: !_tasks[index].isCompleted);
+    notifyListeners();
+  }
+}
+```
 
 ### Exp 6 – Custom widgets and themes
-Reusable `CustomButton`, `PriorityChip` and `StatusChip`; A premium light theme built with strict constraints using Material 3 and `GoogleFonts`. Commits: `dbcc41d`, `9988786`, `40ae657`
+Reusable `CustomButton`, `PriorityChip` and `StatusChip`; light and dark themes built from one seed colour with Material 3. Commits: `dbcc41d`, `9988786`, `40ae657`
 
 ### Exp 7 – Forms and validation
-Fields are rigorously validated before task creation and modification. Commits: `b3a7f1a`, `8f73f28`, `5b636bd`
+Fields are validated before a task is saved. Messages: `Please enter a task title`, `Please enter a description`, `Description must be at least 5 characters long`, `Please enter a due date`. Commits: `b3a7f1a`, `8f73f28`, `5b636bd`
+
+```dart
+// lib/screens/add_task_screen.dart
+validator: (value) {
+  if (value == null || value.trim().isEmpty) {
+    return 'Please enter a task title';
+  }
+  return null;
+},
+// ...
+if (_formKey.currentState!.validate()) {
+  _formKey.currentState!.save();
+  // ... create Task
+  context.read<TaskProvider>().addTask(newTask);
+  Navigator.pop(context);
+}
+```
 
 ### Exp 8 – Animations
-Completing a task gently animates the card's background color, border, and shadow. Commits: `f625849`, `151ad4f`, `a4a6320`
+Completing a task animates the card's opacity, colour and shadow over 500 ms. Commits: `f625849`, `151ad4f`, `a4a6320`
+
+```dart
+// lib/widgets/task_card.dart
+AnimatedOpacity(
+  duration: const Duration(milliseconds: 500),
+  opacity: task.isCompleted ? 0.6 : 1.0,
+  child: AnimatedContainer(duration: const Duration(milliseconds: 500), ...),
+)
+```
 
 ### Exp 9 – REST API
-Fetches users from `https://jsonplaceholder.typicode.com/users` and shows loading, error, and empty states with `FutureBuilder`. Commits: `9767c55`, `af7f50f`, `c13f7f6`
+Fetches users from `https://jsonplaceholder.typicode.com/users` and shows loading, error and empty states with `FutureBuilder`. Commits: `9767c55`, `af7f50f`, `c13f7f6`
+
+```dart
+// lib/screens/api_demo_screen.dart
+final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
+if (response.statusCode == 200) {
+  List<dynamic> data = json.decode(response.body);
+  return data.map((json) => ApiUser.fromJson(json)).toList();
+} else {
+  throw Exception('Failed to load users');
+}
+```
 
 ### Exp 10 – Testing
-Unit tests for models and providers, plus widget tests. Commits: `7cc6d2f`, `be818d4`, `a207f1a`
+Unit tests for the model and provider, plus a widget test that adds a task, toggles it and opens the API demo. Commits: `7cc6d2f`, `be818d4`, `a207f1a`
+
+```dart
+// test/services_test.dart
+provider.setSearchQuery('App');
+expect(provider.tasks.length, 1);
+expect(provider.tasks.first.title, 'Apple');
+```
 
 ---
+
 
 ## ✅ Testing and Verification
 
