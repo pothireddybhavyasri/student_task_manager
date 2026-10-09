@@ -1,9 +1,15 @@
 # 📚 Student Task Manager
 
+![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white)
+![State](https://img.shields.io/badge/State-Provider-blue)
+![Design](https://img.shields.io/badge/UI-Material%203-purple)
+![Tests](https://img.shields.io/badge/Tests-Unit%20%2B%20Widget-green)
+
 A Flutter app for managing student tasks: add tasks with a priority and due date, search them, mark them done, and delete them. The layout switches between a list (phones) and a 2‑column grid (wider screens). It was built through **10 experiments**, each with its own commits and a write‑up in [`docs/`](docs/).
 
 ## 📑 Contents
-[Features](#-features) · [Tech Stack](#-tech-stack) · [Getting Started](#-getting-started) · [Screenshots](#-screenshots) · [Experiments](#-experiments) · [Testing](#-testing) · [Timeline](#-development-timeline) · [Limitations](#-known-limitations) · [Author](#-author)
+[Features](#-features) · [Visual Overview](#-visual-overview) · [How to Get the Output](#-how-to-get-the-output) · [Example Output Preview](#-example-output-preview) · [Tech Stack](#-tech-stack) · [Getting Started](#-getting-started) · [Screenshots](#-screenshots) · [Experiments](#-experiments) · [Testing](#-testing) · [Timeline](#-development-timeline) · [Limitations](#-known-limitations) · [Author](#-author)
 
 ---
 
@@ -111,8 +117,49 @@ flowchart LR
 
 ---
 
+## 📷 How to Get the Output
 
+1. **Install Flutter** and check your setup: `flutter doctor`
+2. **Get the code and dependencies:**
+```bash
+   git clone https://github.com/pothireddybhavyasri/student_task_manager.git
+   cd student_task_manager
+   flutter pub get
+```
+3. **Run the app** (Chrome is the easiest way to see the responsive layout):
+```bash
+   flutter run -d chrome
+```
+   You can also run it on an Android emulator or a connected phone with `flutter run`.
+4. **Try the features and see the output:**
 
+   | Step | Action | Output you should see |
+   |---|---|---|
+   | 1 | Open the app | "No tasks yet. Add one!" and `Total Tasks: 0` |
+   | 2 | Tap **Add Task**, leave fields empty, tap **Save Task** | Red validation messages under the fields |
+   | 3 | Fill in the form and save | The task card appears; counter becomes 1 |
+   | 4 | Tap the circle icon on a card | Card fades, title struck through, chip changes to **Done** |
+   | 5 | Type in **Search Tasks** | Only tasks with matching titles are shown |
+   | 6 | Tap the trash icon | The task is removed |
+   | 7 | Resize the Chrome window past 600 px | Layout switches from 1 column to a 2-column grid |
+
+5. **Run the tests:** `flutter test`
+
+---
+
+## 🖼 Example Output Preview
+
+> These images are **illustrations of the expected output**, drawn from the app's code. They are not real screenshots. Real screenshots are in the Screenshots section.
+
+| Phone (list view) | Add Task validation |
+|:---:|:---:|
+| <img src="docs/preview/example_home_list_phone.png" width="300"> | <img src="docs/preview/example_add_task_validation.png" width="300"> |
+
+**Wide window (2-column grid, width above 600 px):**
+
+<img src="docs/preview/example_home_grid_wide.png" width="650">
+
+---
 
 ## 🛠 Tech Stack
 
@@ -141,7 +188,7 @@ flutter test
 
 ## 🖼 Screenshots
 
-<!-- Add real screenshots to docs/screenshots/, then use ![alt](docs/screenshots/file.png) -->
+Real screenshots of the running app go in `docs/screenshots/`.
 
 | Screen | File |
 |---|---|
@@ -152,7 +199,14 @@ flutter test
 | Completed task | `docs/screenshots/completed.png` |
 | API Demo | `docs/screenshots/api_demo.png` |
 
----
+<!-- After uploading the images, replace the table above with this:
+
+| Phone (list) | Wide window (2-column grid) |
+|:---:|:---:|
+| <img src="docs/screenshots/home_list_phone.png" width="300"> | <img src="docs/screenshots/home_grid_wide.png" width="450"> |
+| **Add Task validation** | **Completed task** |
+| <img src="docs/screenshots/add_task_validation.png" width="300"> | <img src="docs/screenshots/completed.png" width="300"> |
+-->
 
 ## 🧪 Experiments
 
