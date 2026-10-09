@@ -6,16 +6,6 @@ Welcome to the **Student Task Manager**, a premium, responsive Flutter applicati
 
 ---
 
-## 📸 Application Preview
-
-Below are the genuine application screenshots demonstrating the responsive layout on different screen sizes.
-
-| Mobile App Preview | Desktop Dashboard Preview |
-|:---:|:---:|
-| <img src="docs/screenshots/flutter_phone_example.jpeg" width="300" alt="Mobile list layout of Student Task Manager"> | <img src="docs/screenshots/flutter_example(1).jpg" width="600" alt="Wide desktop dashboard layout with grid and summary cards"> |
-
----
-
 ## 📑 Table of Contents
 
 1. [Project Overview](#-project-overview)
@@ -328,6 +318,20 @@ expect(provider.tasks.first.title, 'Apple');
 ```
 
 ---
+
+
+
+
+## 📸 Application Preview
+
+Below are the genuine application screenshots demonstrating the responsive layout on different screen sizes.
+
+| Mobile App Preview | Desktop Dashboard Preview |
+|:---:|:---:|
+| <img src="docs/screenshots/flutter_phone_example.jpeg" width="300" alt="Mobile list layout of Student Task Manager"> | <img src="docs/screenshots/flutter_example(1).jpg" width="600" alt="Wide desktop dashboard layout with grid and summary cards"> |
+
+---
+
 
 
 ## ✅ Testing and Verification
