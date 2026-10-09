@@ -26,6 +26,94 @@ A Flutter app for managing student tasks: add tasks with a priority and due date
 
 ---
 
+## 🎨 Visual Overview
+
+### Home screen layout
+Drawn from `lib/screens/home_screen.dart` (a layout diagram, not a screenshot).
+
+```text
+┌──────────────────────────────────┐
+│     Student Task Manager         │  ← AppBar
+├──────────────────────────────────┤
+│ 🔍 Search Tasks             ✕    │  ← SearchBox
+├──────────────────────────────────┤
+│ Total Tasks:                  3  │  ← Consumer<TaskProvider>
+├──────────────────────────────────┤
+│ ┌──────────────────────────────┐ │
+│ │ ○ Task title        Pending  │ │  ← TaskCard
+│ │ Description                  │ │     (list on phones,
+│ │ 📅 Due date  Priority: High 🗑│ │      2-column grid > 600 px)
+│ └──────────────────────────────┘ │
+├──────────────────────────────────┤
+│         [ + Add Task ]           │
+│         [   API Demo  ]          │
+└──────────────────────────────────┘
+```
+
+### App navigation flow
+
+```mermaid
+flowchart TD
+    H["Home Screen"] -->|"Add Task"| A["Add Task Form"]
+    A -->|"valid, Save Task"| P["TaskProvider.addTask"]
+    A -->|"invalid"| E["Validation messages"]
+    E --> A
+    P --> H
+    H -->|"tap a card"| D["Task Details"]
+    H -->|"API Demo"| API["API Demo Screen"]
+    H -.->|"route exists, placeholder only"| ED["Edit Task"]
+```
+
+### State management (Provider)
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant S as SearchBox / TaskCard
+    participant P as TaskProvider
+    participant C as Consumer widgets
+    U->>S: type in search / tap circle / tap delete
+    S->>P: setSearchQuery / toggleTaskCompletion / deleteTask
+    P->>P: update list
+    P-->>C: notifyListeners()
+    C->>C: rebuild counter and task list
+```
+
+### Responsive layout decision
+
+```mermaid
+flowchart LR
+    W["LayoutBuilder: constraints.maxWidth"] --> Q{"width > 600 ?"}
+    Q -->|"yes"| G["GridView, 2 columns"]
+    Q -->|"no"| L["ListView, 1 column"]
+```
+
+### Task status
+
+```mermaid
+stateDiagram-v2
+    [*] --> Pending
+    Pending --> Done: tap circle icon
+    Done --> Pending: tap check icon
+    Pending --> [*]: delete
+    Done --> [*]: delete
+```
+
+### Architecture
+
+```mermaid
+flowchart LR
+    M["models: Task, ApiUser"] --> S["services: TaskProvider"]
+    S --> SC["screens: Home, Add, Details, API Demo"]
+    SC --> W["widgets: TaskCard, chips, CustomButton"]
+    T["utils: AppThemes"] --> SC
+```
+
+---
+
+
+
+
 ## 🛠 Tech Stack
 
 | Package | Purpose |
