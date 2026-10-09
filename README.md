@@ -196,9 +196,6 @@ lib/
 
 The evolution of this project was documented through ten core experimental steps. Snippets are trimmed excerpts from the source.
 
-## 🧪 Experiments
-
-Snippets are trimmed excerpts from the source (`// ...` marks omitted lines).
 
 ### Exp 1 – Flutter & Dart foundation
 App entry point with Provider set up at the root. Commits: `b4aa9d0`, `17c3e5d`, `deffa58`
