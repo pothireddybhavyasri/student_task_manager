@@ -1,5 +1,5 @@
 
-# 🎓 Student Task Manager
+#  Student Task Manager
 ### Organize Your Tasks. Stay Focused. Meet Every Deadline.
 
 <p align="center">
@@ -15,32 +15,9 @@
 <p align="center">
   <a href="https://github.com/pothireddybhavyasri/student_task_manager">GitHub Repository</a>
 </p>
-
 ---
 
-## 📑 Table of Contents
-
-1. Project Overview
-2. Objectives
-3. Key Features
-4. Technology Stack
-5. Application Workflow
-6. System Architecture
-7. Mermaid Visualizations
-8. Application Modules
-9. Repository Structure
-10. Getting Started
-11. Flutter Experiments (1–10)
-12. Testing and Verification
-13. Application screenshots 
-14. Learning Outcomes
-15. Future Enhancements
-16. Conclusion
-17. References
-
----
-
-## 📌 1. Project Overview
+##  1. Project Overview
 
 Student Task Manager is a Flutter-based mobile application designed to help students organize academic responsibilities, manage assignments, track task completion, and improve time management.
 
@@ -54,20 +31,18 @@ Students regularly handle assignments, laboratory records, examinations, project
 
 ---
 
-## 🎯 2. Project Objectives
+2. Objectives
 
-- Organize academic tasks and personal activities.
-- Create and manage tasks through an interactive interface.
-- Track pending and completed activities.
-- Simplify task creation and monitoring.
-- Implement navigation between application screens.
-- Apply reusable widgets and custom styling.
-- Demonstrate state management and form validation.
-- Develop a responsive mobile application.
+Organise academic tasks and personal tasks
+Create and manage tasks
+Keep track of pending tasks
+Make it easy to create and monitor tasks
+Navigate between pages
+Use reusable widgets and customised styling
+Implement state management and form validation
+Create a responsive mobile application
 
----
-
-## 🌟 3. Key Features
+##  3. Key Features
 
 - **Task Management:** Create, organize, and view academic tasks.
 - **Academic Organization:** Maintain an overview of assignments and responsibilities.
@@ -78,9 +53,7 @@ Students regularly handle assignments, laboratory records, examinations, project
 - **State Management:** Update the interface using setState or Provider where implemented.
 - **Responsive Interface:** Adapt layouts to different display sizes.
 
----
-
-## 🏷️ 4. Technology Stack
+## 4. Technology Stack
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=flutter,dart,androidstudio,vscode,git,github" alt="Technology Stack"/>
@@ -100,7 +73,7 @@ Students regularly handle assignments, laboratory records, examinations, project
 
 ---
 
-## 🔄 5. Application Workflow
+##  5. Application Workflow
 
 ```mermaid
 flowchart TD
@@ -121,19 +94,8 @@ flowchart TD
     L --> M([End])
 ```
 
-### Workflow Explanation
 
-1. Launch the application and display the home screen.
-2. Open the task dashboard and select an action.
-3. Enter task details through the task form.
-4. Validate the entered information.
-5. Add the task and update the task list.
-6. Update task status when an activity is completed.
-7. Display the updated dashboard.
-
----
-
-## 🏗️ 6. System Architecture
+##  6. System Architecture
 
 ```mermaid
 flowchart TB
@@ -175,131 +137,9 @@ flowchart TB
     K --> C
 ```
 
-| Layer | Responsibility |
-|---|---|
-| Presentation | Displays screens and widgets |
-| Application Logic | Handles navigation and task operations |
-| State Management | Updates the interface when data changes |
-| Data Handling | Manages task information and status |
 
-*This is a logical architecture. Include persistent storage only if it is implemented in the project.*
 
----
-
-## 📊 7. Mermaid Visualizations
-
-### 7.1 Navigation Flow
-
-```mermaid
-flowchart TD
-    A([Start]) --> B[Home Screen]
-    B --> C[Dashboard]
-    C --> D[Task List]
-    C --> E[Add Task]
-    C --> F[Other Screens]
-    E --> G[Task Form]
-    G --> H[Validate Details]
-    H --> I[Save Task]
-    I --> D
-    D --> J[View Task]
-    J --> K[Update Status]
-    K --> D
-```
-
-### 7.2 Task Lifecycle
-
-```mermaid
-stateDiagram-v2
-    [*] --> Created
-    Created --> Pending
-    Pending --> InProgress
-    InProgress --> Completed
-    Completed --> [*]
-```
-
-### 7.3 Task Data Flow
-
-```mermaid
-flowchart LR
-    A[User Input] --> B[Task Form]
-    B --> C[Input Validation]
-    C --> D{Valid?}
-    D -->|No| E[Show Error]
-    E --> B
-    D -->|Yes| F[Task Processing]
-    F --> G[Update State]
-    G --> H[Refresh Task List]
-    H --> I[Display Updated UI]
-```
-
-### 7.4 Widget Composition
-
-```mermaid
-flowchart TD
-    A[MaterialApp] --> B[Home Screen]
-    B --> C[Scaffold]
-    C --> D[AppBar]
-    C --> E[Body]
-    C --> F[Floating Action Button]
-    E --> G[Column / Row]
-    G --> H[Text Widgets]
-    G --> I[Task Cards]
-    G --> J[Buttons]
-    F --> K[Task Form]
-```
-
-### 7.5 State Management
-
-```mermaid
-flowchart TD
-    A[User Interaction] --> B[Event Handler]
-    B --> C[Update State]
-    C --> D[setState / Provider]
-    D --> E[Widget Rebuild]
-    E --> F[Updated Interface]
-```
-
-### 7.6 Task Creation Sequence
-
-```mermaid
-sequenceDiagram
-    actor User
-    participant UI as Flutter UI
-    participant Form as Task Form
-    participant State as State Manager
-
-    User->>UI: Open Task Form
-    UI->>Form: Display Input Fields
-    User->>Form: Enter Task Details
-    Form->>Form: Validate Input
-
-    alt Valid Input
-        Form->>State: Submit Task
-        State->>UI: Update Task List
-        UI-->>User: Display Updated Dashboard
-    else Invalid Input
-        Form-->>User: Display Error Message
-    end
-```
-
----
-
-## 🧩 8. Application Modules
-
-| Module | Description |
-|---|---|
-| Home Screen | Main entry point |
-| Dashboard | Displays task information |
-| Task Management | Handles task creation and organization |
-| Navigation | Controls movement between screens |
-| Form Module | Accepts and validates user input |
-| State Management | Updates the application interface |
-| Custom Widgets | Provides reusable UI components |
-| Theme Module | Maintains consistent styling |
-
----
-
-## 📁 9. Repository Structure
+##  9. Repository Structure
 
 ```text
 student_task_manager/
@@ -321,11 +161,7 @@ student_task_manager/
 └── README.md
 ```
 
-*Representative structure: update it to match the actual repository files and folders.*
-
----
-
-## 🚀 10. Getting Started
+##  10. Getting Started
 
 ### Prerequisites
 
@@ -379,7 +215,7 @@ build/app/outputs/flutter-apk/app-release.apk
 
 ---
 
-## 💻 11. Flutter Experiments (1–10)
+##  11. Flutter Experiments (1–10)
 
 This section contains compact code highlights for the ten Flutter laboratory experiments.
 
@@ -567,24 +403,9 @@ testWidgets('Text visibility test',
 
 ### Experiment Summary
 
-| Experiment | Topic | Main Concepts |
-|---|---|---|
-| 1 | Flutter Setup | MaterialApp, Scaffold |
-| 2 | Widgets and Layouts | Row, Column, Stack |
-| 3 | Responsive UI | MediaQuery, LayoutBuilder |
-| 4 | Navigation | Navigator, Named Routes |
-| 5 | State Management | setState, Provider |
-| 6 | Custom Widgets | ThemeData, Custom Styles |
-| 7 | Forms | TextFormField, Validation |
-| 8 | Animations | AnimatedContainer |
-| 9 | REST API | HTTP, JSON |
-| 10 | Testing | Unit Testing, Widget Testing |
-
-*These are concise illustrative snippets, not complete application programs. Adapt them to the actual laboratory implementation and dependencies.*
-
 ---
 
-## 🧪 12. Testing and Verification
+##  12. Testing and Verification
 
 | Testing Area | What to Verify |
 |---|---|
@@ -607,7 +428,7 @@ flutter doctor
 ```
 
 ---
-## 📸13. Application Screenshots
+## 13. Application Screenshots
 
 ### Mobile View
 
@@ -633,7 +454,7 @@ flutter doctor
 
 The application provides a responsive interface that adapts to different screen sizes, allowing students to manage tasks comfortably on both mobile and desktop devices.
 
-## 🎓 14. Learning Outcomes
+##  14. Learning Outcomes
 
 - Understanding Flutter application architecture.
 - Working with Dart programming language.
@@ -650,22 +471,22 @@ The application provides a responsive interface that adapts to different screen 
 
 ---
 
-## 🗺️ 15. Future Enhancements
+##  15. Future Enhancements
 
-- [ ] Local database integration for persistent task storage.
-- [ ] Calendar-based task scheduling.
-- [ ] Task priority classification.
-- [ ] Deadline reminders and notifications.
-- [ ] Search and filter functionality.
-- [ ] Subject-wise task categorization.
-- [ ] Progress tracking and productivity analytics.
-- [ ] Cloud synchronization.
-- [ ] User authentication.
-- [ ] Dark mode and additional themes.
+Use a local database to store tasks
+Add a calendar to schedule tasks
+Add task priorities
+Add deadline reminders
+Add search and filter options
+Categorise tasks by subject
+Add progress and productivity tracking
+Add cloud synchronisation
+Add user authentication
+Add dark mode and extra themes
 
 ---
 
-## 🏁 16. Conclusion
+##  16. Conclusion
 
 Student Task Manager is a Flutter-based academic productivity application designed to simplify task organization and improve student time management.
 
@@ -677,7 +498,7 @@ Future improvements can introduce persistent database storage, reminders, calend
 
 ---
 
-## 📖 17. References
+##  17. References
 
 1. [Flutter Official Documentation](https://docs.flutter.dev/)
 2. [Dart Official Documentation](https://dart.dev/guides)
@@ -688,7 +509,7 @@ Future improvements can introduce persistent database storage, reminders, calend
 
 ---
 
-## 👩‍💻 Developer
+##  Developer
 
 **Pothireddy Bhavya Sri**  
 Computer Science and Engineering  
