@@ -37,7 +37,7 @@ Dart
 Mobile Application Development
 ---
 ## 2. Aims
-The aim of the Student Task Manager application is to help students organise tasks, both academic and personal. The application allows users to create tasks, manage tasks, track tasks and has features to make navigating between pages easier, creating reusable widgets, custom widgets, state management and validation. The application has a reponsive layout to allow students to easily manage their tasks.
+The aim of the Student Task Manager application is to help students organise tasks, both academic and personal.  The application has a reponsive layout to allow students to easily manage their tasks.
 
 ## 3. Features
 Task Management - Create, manage and view tasks.
@@ -300,12 +300,27 @@ flutter test
 flutter doctor
 ```
 ## 10. Screenshots
-### Mobile
-Student Task Manager on mobile
-### Desktop/Web
-Student Task Manager responsive dashboard
-### Responsive:
-The application has a responsive design, allowing students to manage tasks on a mobile and desktop.
+### Mobile View
+
+<p align="center">
+  <img src="docs/screenshots/flutter_phone_example.jpeg" alt="Student Task Manager - Mobile View" width="300">
+</p>
+
+<p align="center">
+  <em>Student Task Manager running on a mobile device</em>
+</p>
+
+### Desktop / Web View
+
+<p align="center">
+  <img src="docs/screenshots/flutter_example%281%29.jpg" alt="Student Task Manager - Desktop View" width="850">
+</p>
+
+<p align="center">
+  <em>Student Task Manager responsive dashboard on desktop</em>
+</p>
+
+
 ## 11. What I Have Learned
 
 Understand Flutter application structure
