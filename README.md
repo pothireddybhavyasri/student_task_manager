@@ -32,10 +32,11 @@
 10. Getting Started
 11. Flutter Experiments (1–10)
 12. Testing and Verification
-13. Learning Outcomes
-14. Future Enhancements
-15. Conclusion
-16. References
+13. Application screenshots 
+14. Learning Outcomes
+15. Future Enhancements
+16. Conclusion
+17. References
 
 ---
 
@@ -606,8 +607,33 @@ flutter doctor
 ```
 
 ---
+## 📸13. Application Screenshots
 
-## 🎓 13. Learning Outcomes
+### Mobile View
+
+<p align="center">
+  <img src="docs/screenshots/flutter_phone_example.jpeg" alt="Student Task Manager - Mobile View" width="300">
+</p>
+
+<p align="center">
+  <em>Student Task Manager running on a mobile device</em>
+</p>
+
+### Desktop / Web View
+
+<p align="center">
+  <img src="docs/screenshots/flutter_example%281%29.jpg" alt="Student Task Manager - Desktop View" width="850">
+</p>
+
+<p align="center">
+  <em>Student Task Manager responsive dashboard on desktop</em>
+</p>
+
+### Responsive Design
+
+The application provides a responsive interface that adapts to different screen sizes, allowing students to manage tasks comfortably on both mobile and desktop devices.
+
+## 🎓 14. Learning Outcomes
 
 - Understanding Flutter application architecture.
 - Working with Dart programming language.
@@ -624,7 +650,7 @@ flutter doctor
 
 ---
 
-## 🗺️ 14. Future Enhancements
+## 🗺️ 15. Future Enhancements
 
 - [ ] Local database integration for persistent task storage.
 - [ ] Calendar-based task scheduling.
@@ -639,7 +665,7 @@ flutter doctor
 
 ---
 
-## 🏁 15. Conclusion
+## 🏁 16. Conclusion
 
 Student Task Manager is a Flutter-based academic productivity application designed to simplify task organization and improve student time management.
 
@@ -651,7 +677,7 @@ Future improvements can introduce persistent database storage, reminders, calend
 
 ---
 
-## 📖 16. References
+## 📖 17. References
 
 1. [Flutter Official Documentation](https://docs.flutter.dev/)
 2. [Dart Official Documentation](https://dart.dev/guides)
