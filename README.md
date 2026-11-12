@@ -110,15 +110,6 @@ flowchart TD
     L --> M([End])
 ```
 
-###  Application Flow
-
-1. Open the application.
-2. View the task dashboard.
-3. Add a new task.
-4. Enter and validate task details.
-5. View the updated task list.
-6. Mark completed tasks.
-7. Continue managing tasks from the dashboard.
 
 ---
 
@@ -500,12 +491,12 @@ The interface is designed to work across mobile and larger screens, making task 
 
 Possible future improvements include:
 
-- 📅 Calendar and task scheduling
-- ⏰ Deadline reminders
-- 🔎 Search and filtering
-- 📚 Subject-wise task categories
-- 📊 Progress and productivity tracking
-- 🌙 Dark mode and additional themes
+-  Calendar and task scheduling
+-  Deadline reminders
+-  Search and filtering
+-  Subject-wise task categories
+-  Progress and productivity tracking
+-  Dark mode and additional themes
 
 ---
 
