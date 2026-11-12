@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/Responsive-UI-2563EB?style=for-the-badge" />
 </p>
 
-<p align="center">
+<p align="left">
   <b>A simple Flutter application for organising academic tasks, assignments and deadlines.</b>
 </p>
 
@@ -19,13 +19,13 @@
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/01_Overview-8B5CF6?style=for-the-badge" />
 </p>
 
 Student Task Manager is a Flutter mobile application designed to help students organise academic and personal tasks, track completion and manage assignments in one place.
 
-### 👩‍💻 Developer
+###  Developer
 
 | | Details |
 |---|---|
@@ -37,7 +37,7 @@ Student Task Manager is a Flutter mobile application designed to help students o
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/02_Aim-DB2777?style=for-the-badge" />
 </p>
 
@@ -45,7 +45,7 @@ The aim of this project is to build a simple and responsive application that hel
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/03_Features-2563EB?style=for-the-badge" />
 </p>
 
@@ -60,11 +60,11 @@ The aim of this project is to build a simple and responsive application that hel
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/04_Technologies-8B5CF6?style=for-the-badge" />
 </p>
 
-<p align="center">
+<p align="left">
   <img src="https://skillicons.dev/icons?i=flutter,dart,androidstudio,vscode,git,github" alt="Technology Stack"/>
 </p>
 
@@ -82,7 +82,7 @@ The aim of this project is to build a simple and responsive application that hel
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/05_Application_Flow-DB2777?style=for-the-badge" />
 </p>
 
@@ -113,7 +113,7 @@ flowchart TD
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/06_Project_Structure-2563EB?style=for-the-badge" />
 </p>
 
@@ -139,7 +139,7 @@ student_task_manager/
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/07_Getting_Started-8B5CF6?style=for-the-badge" />
 </p>
 
@@ -196,7 +196,7 @@ build/app/outputs/flutter-apk/app-release.apk
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/08_Flutter_Lab_Experiments-DB2777?style=for-the-badge" />
 </p>
 
@@ -407,7 +407,7 @@ testWidgets('Text visibility test',
 
 **Key Concepts:** `flutter_test`, `testWidgets()`, `expect()`
 
-### 🧪 Experiment Summary
+###  Experiment Summary
 
 | No. | Experiment | Main Concepts |
 |---|---|---|
@@ -424,7 +424,7 @@ testWidgets('Text visibility test',
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/09_Testing-2563EB?style=for-the-badge" />
 </p>
 
@@ -455,7 +455,7 @@ flutter doctor
   <img src="https://img.shields.io/badge/10_Screenshots-DB2777?style=for-the-badge" />
 </p>
 
-### 📱 Mobile View
+###  Mobile View
 
 <p align="center">
   <img src="docs/screenshots/flutter_phone_example.jpeg"
@@ -485,7 +485,7 @@ The interface is designed to work across mobile and larger screens, making task 
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/11_Future_Improvements-8B5CF6?style=for-the-badge" />
 </p>
 
@@ -500,7 +500,7 @@ Possible future improvements include:
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/12_What_I_Learned-DB2777?style=for-the-badge" />
 </p>
 
@@ -508,7 +508,7 @@ Through this project, I learned how to build Flutter interfaces using Dart, work
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/13_Conclusion-2563EB?style=for-the-badge" />
 </p>
 
@@ -518,7 +518,7 @@ The project brings together **Flutter widgets, navigation, state management, val
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/14_References-8B5CF6?style=for-the-badge" />
 </p>
 
@@ -531,11 +531,11 @@ The project brings together **Flutter widgets, navigation, state management, val
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/Made_with-Flutter-02569B?style=for-the-badge&logo=flutter" />
 </p>
 
-<p align="center">
+<p align="left">
   <b>Developed by Pothireddy Bhavya Sri</b><br>
   Computer Science and Engineering | ACE Engineering College, Hyderabad
 </p>
