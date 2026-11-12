@@ -339,13 +339,6 @@ The application can be checked using the following areas:
 | Responsive UI | Check different screen sizes |
 | Widgets | Check reusable components |
 
-### Testing Commands
-
-```bash
-flutter analyze
-flutter test
-flutter doctor
-```
 
 ---
 
@@ -365,7 +358,7 @@ flutter doctor
   <em>Student Task Manager running on a mobile device</em>
 </p>
 
-### 💻 Desktop / Web View
+###  Desktop / Web View
 
 <p align="center">
   <img src="docs/screenshots/flutter_example%281%29.jpg"
