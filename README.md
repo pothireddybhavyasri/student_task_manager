@@ -1,115 +1,130 @@
-# <font color="#8B5CF6">Student Task Manager</font>
-
-
-### <font color="#2563EB">Smart Flutter app for managing academic tasks, assignments and deadlines!</font>
+#  Student Task Manager
 
 <p align="center">
   <img src="https://img.shields.io/badge/Flutter-Dart-02569B?style=for-the-badge&logo=flutter" />
-  <img src="https://img.shields.io/badge/Project-Academic-8B5CF6?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Platform-Mobile-34A853?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Academic-Project-8B5CF6?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Mobile-App-DB2777?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Responsive-UI-2563EB?style=for-the-badge" />
 </p>
 
 <p align="center">
-  <b>A smart Flutter application for organising academic tasks, assignments, and deadlines.</b>
+  <b>A simple Flutter application for organising academic tasks, assignments and deadlines.</b>
 </p>
 
 <p align="center">
   <a href="https://github.com/pothireddybhavyasri/student_task_manager">
-    <b>GitHub Repository</b>
+    <img src="https://img.shields.io/badge/View%20Repository-GitHub-181717?style=for-the-badge&logo=github" />
   </a>
 </p>
 
 ---
 
-## <font color="#8B5CF6">1. Overview</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/01_Overview-8B5CF6?style=for-the-badge" />
+</p>
 
-Student Task Manager is a Flutter mobile application that helps students organise academic tasks, manage assignments and track completion of tasks.
+Student Task Manager is a Flutter mobile application designed to help students organise academic and personal tasks, track completion and manage assignments in one place.
 
-As a student, you will complete many assignments, lab work, exams, projects and personal tasks. This application provides an interface that can be used to organise these tasks.
+### 👩‍💻 Developer
 
-### <font color="#DB2777">Developer</font>
-
-- **Name:** Pothireddy Bhavya Sri
-- **College:** ACE Engineering College, Hyderabad
-- **Department:** Computer Science and Engineering
-- **Project:** Academic Mobile Application
-- **Domain:** Flutter, Dart, Mobile Application Development
-
----
-
-## <font color="#8B5CF6">2. Aims</font>
-
-The aim of the Student Task Manager application is to help students organise tasks, both academic and personal. The application has a responsive layout to allow students to easily manage their tasks.
+| | Details |
+|---|---|
+| **Name** | Pothireddy Bhavya Sri |
+| **College** | ACE Engineering College, Hyderabad |
+| **Department** | Computer Science and Engineering |
+| **Project Type** | Academic Mobile Application |
+| **Domain** | Flutter & Dart |
 
 ---
 
-## <font color="#8B5CF6">3. Features</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/02_Aim-DB2777?style=for-the-badge" />
+</p>
 
-- <font color="#DB2777"><b>Task Management</b></font> - Create, manage and view tasks.
-- <font color="#DB2777"><b>Academic Organisation</b></font> - Keep track of assignments.
-- <font color="#DB2777"><b>Task Tracker</b></font> - See what tasks are outstanding and mark them as complete.
-- <font color="#DB2777"><b>Navigation</b></font> - Use Navigator and named routes to navigate between screens.
-- <font color="#DB2777"><b>Reusable Widgets</b></font> - Create reusable widgets and customise the design.
-- <font color="#DB2777"><b>Validation</b></font> - Use forms to add task details and validate them.
-- <font color="#DB2777"><b>State Management</b></font> - Update the interface by using setState or Provider where applicable.
-- <font color="#DB2777"><b>Responsive</b></font> - Responsive application.
+The aim of this project is to build a simple and responsive application that helps students **add, organise, track and complete their tasks** easily.
 
 ---
 
-## <font color="#8B5CF6">4. Technologies Used</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/03_Features-2563EB?style=for-the-badge" />
+</p>
+
+-  **Task Management** — Add and view academic tasks.
+-  **Task Tracking** — Mark tasks as completed.
+-  **Academic Organisation** — Manage assignments and other student work.
+-  **Navigation** — Move between screens using Navigator and named routes.
+-  **Reusable UI** — Use reusable widgets and customised themes.
+-  **Form Validation** — Validate task details before adding them.
+-  **State Management** — Update the interface using Flutter state management.
+-  **Responsive Design** — Adapt the interface for different screen sizes.
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/04_Technologies-8B5CF6?style=for-the-badge" />
+</p>
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=flutter,dart,androidstudio,vscode,git,github" alt="Technology Stack"/>
 </p>
 
-| Layer | Tech | Description |
-|---|---|---|
-| Framework | <font color="#2563EB">Flutter</font> | Mobile Application |
-| Language | <font color="#2563EB">Dart</font> | Logic |
-| UI | Flutter Widgets | Screens |
-| Navigation | Navigator / Named Routes | Navigate Between Screens |
-| State Management | setState / Provider | Manage Application State |
-| Forms | Form / TextFormField | Add Tasks |
-| Styling | ThemeData / Custom Styles | Add custom design to application |
-| IDE | VS Code / Android Studio | Create Application |
-| Source Control | Git / GitHub | Source Control |
+| Area | Technology |
+|---|---|
+| Framework | Flutter |
+| Language | Dart |
+| UI | Flutter Widgets |
+| Navigation | Navigator / Named Routes |
+| State | setState / Provider |
+| Forms | Form / TextFormField |
+| Styling | ThemeData / Custom Styles |
+| IDE | VS Code / Android Studio |
+| Version Control | Git / GitHub |
 
 ---
 
-## <font color="#8B5CF6">5. Flow Diagram</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/05_Application_Flow-DB2777?style=for-the-badge" />
+</p>
 
 ```mermaid
 flowchart TD
-A([Start Application]) --> B[Home Screen]
-B --> C[Task Dashboard]
-C --> D{Select Action}
-D -->|Add Task| E[Open Task Form]
-E --> F[Enter Task Details]
-F --> G{Validate Input}
-G -->|Invalid| H[Display Error]
-H --> F
-G -->|Valid| I[Create Task]
-I --> J[Update Task List]
-D -->|View Tasks| J
-D -->|Complete Task| K[Update Task Status]
-K --> J
-J --> L[Refresh Dashboard]
-L --> M([End])
+    A([Start]) --> B[Home Screen]
+    B --> C[Task Dashboard]
+    C --> D{Select Action}
+
+    D -->|Add Task| E[Task Form]
+    E --> F[Enter Details]
+    F --> G{Validate}
+
+    G -->|Invalid| H[Show Error]
+    H --> F
+
+    G -->|Valid| I[Create Task]
+    I --> J[Update Task List]
+
+    D -->|View Tasks| J
+    D -->|Complete Task| K[Update Status]
+    K --> J
+
+    J --> L[Refresh Dashboard]
+    L --> M([End])
 ```
 
-### <font color="#2563EB">Application Flow</font>
+###  Application Flow
 
-1. Open the application and view the homepage.
-2. Open the task dashboard and choose an option.
-3. Enter information into the task form.
-4. Validate the entered information.
-5. Add the task and update the task list.
-6. Mark the task as complete and update its status.
-7. View the updated dashboard.
+1. Open the application.
+2. View the task dashboard.
+3. Add a new task.
+4. Enter and validate task details.
+5. View the updated task list.
+6. Mark completed tasks.
+7. Continue managing tasks from the dashboard.
 
 ---
 
-## <font color="#8B5CF6">6. File Structure</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/06_Project_Structure-2563EB?style=for-the-badge" />
+</p>
 
 ```text
 student_task_manager/
@@ -133,54 +148,56 @@ student_task_manager/
 
 ---
 
-## <font color="#8B5CF6">7. How to Get Started</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/07_Getting_Started-8B5CF6?style=for-the-badge" />
+</p>
 
-### <font color="#DB2777">Requirements</font>
+### Requirements
 
 - Flutter SDK
 - Dart SDK
-- Android Studio or Visual Studio Code
+- VS Code or Android Studio
 - Android Emulator or Android Device
 - Git
 
-### <font color="#2563EB">1. Clone Repo</font>
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/pothireddybhavyasri/student_task_manager.git
 cd student_task_manager
 ```
 
-### <font color="#2563EB">2. Install Dependencies</font>
+### 2. Install Dependencies
 
 ```bash
 flutter pub get
 ```
 
-### <font color="#2563EB">3. Check Flutter Installation</font>
+### 3. Check Flutter
 
 ```bash
 flutter doctor
 ```
 
-### <font color="#2563EB">4. Run App</font>
+### 4. Run the Application
 
 ```bash
 flutter run
 ```
 
-### <font color="#2563EB">5. Run Tests</font>
+### 5. Run Tests
 
 ```bash
 flutter test
 ```
 
-### <font color="#2563EB">6. Generate APK</font>
+### 6. Build APK
 
 ```bash
 flutter build apk --release
 ```
 
-APK generated at:
+APK location:
 
 ```text
 build/app/outputs/flutter-apk/app-release.apk
@@ -188,11 +205,13 @@ build/app/outputs/flutter-apk/app-release.apk
 
 ---
 
-# <font color="#8B5CF6">8. Flutter Lab Experiments (1-10)</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/08_Flutter_Lab_Experiments-DB2777?style=for-the-badge" />
+</p>
 
-Below are some short snippets of code for each of the 10 Flutter Labs.
+> The following experiments contain the main Flutter concepts demonstrated in the project.
 
-### <font color="#DB2777">1. Flutter Setup</font>
+### 1. Flutter Setup
 
 **Aim:** To understand how to set up a Flutter app and use basic widgets.
 
@@ -214,7 +233,7 @@ void main() {
 
 ---
 
-### <font color="#DB2777">2. Widgets & Layouts</font>
+### 2. Widgets & Layouts
 
 **Aim:** To implement a layout using Row, Column and basic widgets.
 
@@ -238,7 +257,7 @@ Column(
 
 ---
 
-### <font color="#DB2777">3. Responsive Design</font>
+### 3. Responsive Design
 
 **Aim:** To create a responsive layout using MediaQuery and LayoutBuilder.
 
@@ -256,7 +275,7 @@ LayoutBuilder(
 
 ---
 
-### <font color="#DB2777">4. Navigation & Named Routes</font>
+### 4. Navigation & Named Routes
 
 **Aim:** To navigate between multiple screens.
 
@@ -272,7 +291,7 @@ Navigator.pop(context);
 
 ---
 
-### <font color="#DB2777">5. Stateful & Stateless Widgets</font>
+### 5. Stateful & Stateless Widgets
 
 **Aim:** To understand how to manage state using setState and Provider.
 
@@ -292,7 +311,7 @@ Text("Count: $count");
 
 ---
 
-### <font color="#DB2777">6. Custom Widgets & Themes</font>
+### 6. Custom Widgets & Themes
 
 **Aim:** To create custom widgets and customise the design.
 
@@ -311,7 +330,7 @@ ElevatedButton(
 
 ---
 
-### <font color="#DB2777">7. Forms & Validation</font>
+### 7. Forms & Validation
 
 **Aim:** To create forms with validation.
 
@@ -335,7 +354,7 @@ TextFormField(
 
 ---
 
-### <font color="#DB2777">8. Animations</font>
+### 8. Animations
 
 **Aim:** To create animations using Flutter animation widgets.
 
@@ -352,7 +371,7 @@ AnimatedContainer(
 
 ---
 
-### <font color="#DB2777">9. REST API & JSON</font>
+### 9. REST API & JSON
 
 **Aim:** To retrieve data from a REST API.
 
@@ -371,7 +390,7 @@ if (response.statusCode == 200) {
 
 ---
 
-### <font color="#DB2777">10. Unit & Widget Testing</font>
+### 10. Unit & Widget Testing
 
 **Aim:** To perform unit and widget testing.
 
@@ -397,38 +416,41 @@ testWidgets('Text visibility test',
 
 **Key Concepts:** `flutter_test`, `testWidgets()`, `expect()`
 
-### <font color="#2563EB">Experiment Summary</font>
+### 🧪 Experiment Summary
 
-| Experiment | Topic | Key Concepts |
+| No. | Experiment | Main Concepts |
 |---|---|---|
 | 1 | Flutter Setup | MaterialApp, Scaffold |
-| 2 | Widgets | Row, Column, Stack |
+| 2 | Widgets & Layouts | Row, Column |
 | 3 | Responsive Design | MediaQuery, LayoutBuilder |
 | 4 | Navigation | Navigator, Named Routes |
 | 5 | State Management | setState, Provider |
-| 6 | Custom Widgets | ThemeData, Custom Styles |
-| 7 | Forms | TextFormField |
+| 6 | Custom Widgets | ThemeData |
+| 7 | Forms & Validation | TextFormField |
 | 8 | Animations | AnimatedContainer |
 | 9 | REST API | HTTP, JSON |
-| 10 | Testing | Unit Testing, Widget Testing |
+| 10 | Testing | Unit & Widget Testing |
 
 ---
 
-## <font color="#8B5CF6">9. Testing</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/09_Testing-2563EB?style=for-the-badge" />
+</p>
 
-| Test | Check |
+The application can be checked using the following areas:
+
+| Test Area | Purpose |
 |---|---|
 | UI | Check screens and widgets |
-| Navigation | Navigation between screens |
-| Forms | Check inputs and validation |
-| Task Creation | Check tasks can be created |
-| State Management | Check application state can be managed |
-| Task Tracker | Check tasks are marked as complete |
-| Responsive | Check responsive design |
-| Widgets | Check widgets can be reused |
-| Integration | Check the full application works |
+| Navigation | Check screen navigation |
+| Forms | Check input and validation |
+| Task Creation | Check task creation |
+| Task Tracker | Check completion status |
+| State | Check UI updates |
+| Responsive UI | Check different screen sizes |
+| Widgets | Check reusable components |
 
-### <font color="#2563EB">Commands</font>
+### Testing Commands
 
 ```bash
 flutter analyze
@@ -438,59 +460,76 @@ flutter doctor
 
 ---
 
-## <font color="#8B5CF6">10. Screenshots</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/10_Screenshots-DB2777?style=for-the-badge" />
+</p>
 
-### <font color="#DB2777">Mobile View</font>
+### 📱 Mobile View
 
 <p align="center">
-  <img src="docs/screenshots/flutter_phone_example.jpeg" alt="Student Task Manager - Mobile View" width="300">
+  <img src="docs/screenshots/flutter_phone_example.jpeg"
+       alt="Student Task Manager - Mobile View"
+       width="300">
 </p>
 
 <p align="center">
   <em>Student Task Manager running on a mobile device</em>
 </p>
 
-### <font color="#DB2777">Desktop / Web View</font>
+### 💻 Desktop / Web View
 
 <p align="center">
-  <img src="docs/screenshots/flutter_example%281%29.jpg" alt="Student Task Manager - Desktop View" width="850">
+  <img src="docs/screenshots/flutter_example%281%29.jpg"
+       alt="Student Task Manager - Desktop View"
+       width="850">
 </p>
 
 <p align="center">
-  <em>Student Task Manager responsive dashboard on desktop</em>
+  <em>Responsive dashboard on desktop</em>
 </p>
 
-### <font color="#2563EB">Responsive Design</font>
+### 📐 Responsive Design
 
-The application has a responsive layout so students can easily manage their tasks on mobile and desktop.
-
----
-
-## <font color="#8B5CF6">11. Future Improvements</font>
-
-In the future, the project can be improved by adding a local database to store tasks permanently. A calendar can be added to schedule tasks, along with task priorities and reminders for deadlines. Search and filter options can make it easier to find tasks, while subject-wise categorisation can help students organise their academic work. Progress and productivity tracking, cloud synchronisation, user authentication, dark mode and additional themes can also be added in future versions.
+The interface is designed to work across mobile and larger screens, making task management easier on different devices.
 
 ---
 
-## <font color="#8B5CF6">12. What I Have Learned</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/11_Future_Improvements-8B5CF6?style=for-the-badge" />
+</p>
 
-Through this project, I learned how to work with Flutter application structure and Dart programming. I learned to create interfaces using Flutter widgets, navigate between screens, understand StatefulWidget and StatelessWidget, and manage application state. I also worked with forms and validation, reusable custom widgets, customised designs, animations, REST APIs, unit testing and widget testing. The project also helped me understand debugging and the overall process of developing a Flutter mobile application.
+Possible future improvements include:
 
----
-
-## <font color="#8B5CF6">13. Conclusion</font>
-
-The Student Task Manager is a Flutter-based academic productivity tool that can help students manage their tasks.
-
-The project shows how to use Flutter widgets, navigation, state management, form validation, custom widgets, responsive design, animations and testing.
-
-The project gives an insight into developing a mobile application and shows how Flutter can be used to create structured and interactive applications.
-
-Improvements can be made to the application by adding a local database, reminders, calendar scheduling and productivity analytics.
+- 📅 Calendar and task scheduling
+- ⏰ Deadline reminders
+- 🔎 Search and filtering
+- 📚 Subject-wise task categories
+- 📊 Progress and productivity tracking
+- 🌙 Dark mode and additional themes
 
 ---
 
-## <font color="#8B5CF6">14. References</font>
+<p align="center">
+  <img src="https://img.shields.io/badge/12_What_I_Learned-DB2777?style=for-the-badge" />
+</p>
+
+Through this project, I learned how to build Flutter interfaces using Dart, work with widgets and layouts, navigate between screens, manage state, validate forms, create reusable components, add animations, work with REST APIs and perform basic testing.
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/13_Conclusion-2563EB?style=for-the-badge" />
+</p>
+
+Student Task Manager demonstrates how Flutter can be used to build a simple, responsive and interactive academic application.
+
+The project brings together **Flutter widgets, navigation, state management, validation, responsive design, animations, APIs and testing** in one application.
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/14_References-8B5CF6?style=for-the-badge" />
+</p>
 
 1. [Flutter Documentation](https://docs.flutter.dev/)
 2. [Dart Documentation](https://dart.dev/guides)
@@ -502,9 +541,10 @@ Improvements can be made to the application by adding a local database, reminder
 ---
 
 <p align="center">
-  <b><font color="#8B5CF6">Developed by Pothireddy Bhavya Sri</font></b>
+  <img src="https://img.shields.io/badge/Made_with-Flutter-02569B?style=for-the-badge&logo=flutter" />
 </p>
 
 <p align="center">
+  <b>Developed by Pothireddy Bhavya Sri</b><br>
   Computer Science and Engineering | ACE Engineering College, Hyderabad
 </p>
