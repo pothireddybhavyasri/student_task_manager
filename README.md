@@ -85,7 +85,7 @@ The aim of this project is to build a simple and responsive application that hel
 <p align="left">
   <img src="https://img.shields.io/badge/05_Work_Flow-DB2777?style=for-the-badge" />
 </p>
-<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/edb4e817-e618-44a1-93dd-2b8097453eb0" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/edb4e817-e618-44a1-93dd-2b8097453eb0" />
 
 
 ---
