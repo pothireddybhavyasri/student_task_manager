@@ -31,7 +31,7 @@ Students regularly handle assignments, laboratory records, examinations, project
 
 ---
 
-2. Objectives
+## 2. Objectives
 
 Organise academic tasks and personal tasks
 Create and manage tasks
@@ -95,51 +95,7 @@ flowchart TD
 ```
 
 
-##  6. System Architecture
-
-```mermaid
-flowchart TB
-    U[Student / User]
-
-    subgraph UI["Presentation Layer"]
-        A[Flutter Application]
-        B[Home Screen]
-        C[Task Dashboard]
-        D[Task Form]
-        E[Other Screens]
-    end
-
-    subgraph LOGIC["Application Logic"]
-        F[Navigation Manager]
-        G[Task Management]
-        H[Form Validation]
-        I[State Management]
-    end
-
-    subgraph DATA["Data Handling"]
-        J[Task Information]
-        K[Task Status]
-    end
-
-    U --> A
-    A --> B
-    A --> C
-    A --> D
-    A --> E
-    B --> F
-    C --> G
-    D --> H
-    G --> I
-    H --> I
-    I --> J
-    I --> K
-    J --> C
-    K --> C
-```
-
-
-
-##  9. Repository Structure
+##  6. Repository Structure
 
 ```text
 student_task_manager/
@@ -161,7 +117,7 @@ student_task_manager/
 └── README.md
 ```
 
-##  10. Getting Started
+##  7. Getting Started
 
 ### Prerequisites
 
@@ -215,7 +171,7 @@ build/app/outputs/flutter-apk/app-release.apk
 
 ---
 
-##  11. Flutter Experiments (1–10)
+##  8. Flutter Experiments (1–10)
 
 This section contains compact code highlights for the ten Flutter laboratory experiments.
 
@@ -405,7 +361,7 @@ testWidgets('Text visibility test',
 
 ---
 
-##  12. Testing and Verification
+##  9. Testing and Verification
 
 | Testing Area | What to Verify |
 |---|---|
@@ -428,7 +384,7 @@ flutter doctor
 ```
 
 ---
-## 13. Application Screenshots
+## 10. Application Screenshots
 
 ### Mobile View
 
@@ -454,7 +410,7 @@ flutter doctor
 
 The application provides a responsive interface that adapts to different screen sizes, allowing students to manage tasks comfortably on both mobile and desktop devices.
 
-##  14. Learning Outcomes
+##  11. Learning Outcomes
 
 - Understanding Flutter application architecture.
 - Working with Dart programming language.
@@ -471,7 +427,7 @@ The application provides a responsive interface that adapts to different screen 
 
 ---
 
-##  15. Future Enhancements
+##  12. Future Enhancements
 
 Use a local database to store tasks
 Add a calendar to schedule tasks
@@ -486,7 +442,7 @@ Add dark mode and extra themes
 
 ---
 
-##  16. Conclusion
+##  13. Conclusion
 
 Student Task Manager is a Flutter-based academic productivity application designed to simplify task organization and improve student time management.
 
@@ -498,7 +454,7 @@ Future improvements can introduce persistent database storage, reminders, calend
 
 ---
 
-##  17. References
+##  15. References
 
 1. [Flutter Official Documentation](https://docs.flutter.dev/)
 2. [Dart Official Documentation](https://dart.dev/guides)
