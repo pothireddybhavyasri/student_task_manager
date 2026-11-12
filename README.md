@@ -451,7 +451,7 @@ flutter doctor
 
 ---
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/10_Screenshots-DB2777?style=for-the-badge" />
 </p>
 
