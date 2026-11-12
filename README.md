@@ -1,5 +1,6 @@
 # <font color="#8B5CF6">Student Task Manager</font>
 
+
 ### <font color="#2563EB">Smart Flutter app for managing academic tasks, assignments and deadlines!</font>
 
 <p align="center">
