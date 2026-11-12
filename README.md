@@ -85,93 +85,14 @@ The aim of this project is to build a simple and responsive application that hel
 <p align="left">
   <img src="https://img.shields.io/badge/05_Work_Flow-DB2777?style=for-the-badge" />
 </p>
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/edb4e817-e618-44a1-93dd-2b8097453eb0" />
+<img width="350" height="350" alt="image" src="https://github.com/user-attachments/assets/edb4e817-e618-44a1-93dd-2b8097453eb0" />
 
 
 ---
 
-<p align="left">
-  <img src="https://img.shields.io/badge/06_Project_Structure-2563EB?style=for-the-badge" />
-</p>
 
-```text
-student_task_manager/
-├── android/
-├── ios/
-├── web/
-├── lib/
-│   ├── main.dart
-│   ├── screens/
-│   ├── widgets/
-│   ├── models/
-│   ├── services/
-│   └── theme/
-├── assets/
-├── test/
-├── pubspec.yaml
-├── pubspec.lock
-├── analysis_options.yaml
-└── README.md
-```
 
----
 
-<p align="left">
-  <img src="https://img.shields.io/badge/07_Getting_Started-8B5CF6?style=for-the-badge" />
-</p>
-
-### Requirements
-
-- Flutter SDK
-- Dart SDK
-- VS Code or Android Studio
-- Android Emulator or Android Device
-- Git
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/pothireddybhavyasri/student_task_manager.git
-cd student_task_manager
-```
-
-### 2. Install Dependencies
-
-```bash
-flutter pub get
-```
-
-### 3. Check Flutter
-
-```bash
-flutter doctor
-```
-
-### 4. Run the Application
-
-```bash
-flutter run
-```
-
-### 5. Run Tests
-
-```bash
-flutter test
-```
-
-### 6. Build APK
-
-```bash
-flutter build apk --release
-```
-
-APK location:
-
-```text
-build/app/outputs/flutter-apk/app-release.apk
-```
-
----
 
 <p align="left">
   <img src="https://img.shields.io/badge/08_Flutter_Lab_Experiments-DB2777?style=for-the-badge" />
