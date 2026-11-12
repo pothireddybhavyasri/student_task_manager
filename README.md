@@ -83,32 +83,9 @@ The aim of this project is to build a simple and responsive application that hel
 ---
 
 <p align="left">
-  <img src="https://img.shields.io/badge/05_Application_Flow-DB2777?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/05_Work_Flow-DB2777?style=for-the-badge" />
 </p>
-
-```mermaid
-flowchart TD
-    A([Start]) --> B[Home Screen]
-    B --> C[Task Dashboard]
-    C --> D{Select Action}
-
-    D -->|Add Task| E[Task Form]
-    E --> F[Enter Details]
-    F --> G{Validate}
-
-    G -->|Invalid| H[Show Error]
-    H --> F
-
-    G -->|Valid| I[Create Task]
-    I --> J[Update Task List]
-
-    D -->|View Tasks| J
-    D -->|Complete Task| K[Update Status]
-    K --> J
-
-    J --> L[Refresh Dashboard]
-    L --> M([End])
-```
+<img width="1312" height="1199" alt="image" src="https://github.com/user-attachments/assets/edb4e817-e618-44a1-93dd-2b8097453eb0" />
 
 
 ---
