@@ -32,16 +32,7 @@ Students regularly handle assignments, laboratory records, examinations, project
 ---
 
 ## 2. Objectives
-
-Organise academic tasks and personal tasks
-Create and manage tasks
-Keep track of pending tasks
-Make it easy to create and monitor tasks
-Navigate between pages
-Use reusable widgets and customised styling
-Implement state management and form validation
-Create a responsive mobile application
-
+The main objective of the Student Task Manager is to help students organise their academic and personal tasks in one place. The application allows users to create and manage tasks, keep track of pending activities, and mark completed tasks. It also focuses on providing easy navigation between pages, reusable widgets, customised styling, state management, and form validation. The application is designed with a responsive interface so that students can manage their tasks comfortably on different screen sizes.
 ##  3. Key Features
 
 - **Task Management:** Create, organize, and view academic tasks.
